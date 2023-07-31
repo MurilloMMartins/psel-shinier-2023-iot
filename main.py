@@ -1,6 +1,6 @@
 import git
 
-def checkForChangesInRemote(repository:git.Repo):
+def checkForCommitChanges(repository:git.Repo):
     activeBranch = repository.active_branch
 
     localCommits = list(repository.iter_commits(activeBranch))
@@ -8,6 +8,13 @@ def checkForChangesInRemote(repository:git.Repo):
 
     # we don't need to sort these lists to compare them
     return localCommits != remoteCommits
+
+def checkForChangesInRemote(repository:git.Repo):
+    for remote in repository.remotes:
+        remote.fetch()
+    
+    return checkForCommitChanges(repository)
+
 
 def main():
     repo = git.Repo('./')
