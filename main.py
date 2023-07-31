@@ -6,7 +6,7 @@ def checkForCommitChanges(repository:git.Repo):
     localCommits = set(repository.iter_commits(activeBranch))
     remoteCommits = set(repository.iter_commits(f'origin/{activeBranch}'))
 
-    return localCommits.issubset(remoteCommits)
+    return not remoteCommits.issubset(localCommits)
 
 def checkForChangesInRemote(repository:git.Repo):
     for remote in repository.remotes:
