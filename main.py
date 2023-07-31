@@ -15,6 +15,9 @@ def checkForChangesInRemote(repository:git.Repo):
     
     return checkForCommitChanges(repository)
 
+def updateRepository(repository:git.Repo):
+    repository.git.reset('--hard')
+    repository.remotes.origin.pull()
 
 def main():
     repo = git.Repo('./')
@@ -22,11 +25,10 @@ def main():
         print("Changes in remote detected!")
         print("Pulling from local repository")
         try:
-            repo.git.reset('--hard')
-            repo.remotes.origin.pull()
+            updateRepository(repo)
         except git.GitCommandError as err:
             print(f"Unexpected error of type {type(err)}:\n {err}")
-            exit
+            exit()
     else:
         print("Repository up to date.")
 
