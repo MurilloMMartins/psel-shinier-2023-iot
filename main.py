@@ -1,4 +1,5 @@
 import git
+import subprocess
 
 def checkForCommitChanges(repository:git.Repo):
     activeBranch = repository.active_branch
@@ -17,22 +18,27 @@ def checkForChangesInRemote(repository:git.Repo):
     
     return checkForCommitChanges(repository)
 
-def updateRepository(repository:git.Repo):
+def pullToLocalRepository(repository:git.Repo):
     repository.git.reset('--hard')
     repository.remotes.origin.pull()
 
-def main():
-    repo = git.Repo('./')
-    if checkForChangesInRemote(repo):
-        print("Changes in remote detected!")
-        print("Pulling from local repository")
-        try:
-            updateRepository(repo)
-        except git.GitCommandError as err:
-            print(f"Unexpected error of type {type(err)}:\n {err}")
-            exit()
+def AutoUpdateProgram(repository:git.Repo):
+    if checkForChangesInRemote(repository):
+        print("Changes in remote detected! Pulling to local repository.")
+        pullToLocalRepository(repository)
+        
+        print("Restarting process!")
+        subprocess.Popen(['python', __file__])
     else:
         print("Repository up to date.")
+
+def main():
+    repo = git.Repo('./')
+    try:
+        AutoUpdateProgram(repo)
+    except git.GitCommandError as err:
+        print(f"Unexpected error of type {type(err)}:\n {err}")
+        exit(1)
 
 if __name__ == "__main__":
     main()
