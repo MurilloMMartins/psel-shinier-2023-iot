@@ -2,7 +2,17 @@ import git
 from autoupdate import AutoUpdateProgram
 
 import tkinter as tk
-from tkinter import ttk
+from tkinter import ttk, messagebox
+
+def onButtonClick():
+    popup = tk.Toplevel()
+    
+    label = tk.Label(popup, text="Candidato processo seletivo Shinier IoT")
+    label.pack(padx=30, pady=10, fill='both', expand=True)
+    
+    button = tk.Button(popup, text="OK", command=popup.destroy)
+    button.pack(pady=10, padx=10, ipadx=20)
+
 
 def main():
     # repo = git.Repo('./')
@@ -15,7 +25,7 @@ def main():
     # Creating Tkinter Root
     root = tk.Tk()
     root.title('Psel-Shinier-2023-IoT')
-    root.geometry('400x200')
+    root.geometry('400x225')
 
     # Creating frame that will have all UI elements
     frame = ttk.Frame(master=root, borderwidth=1)
@@ -34,7 +44,7 @@ def main():
     # UI elements
     label = ttk.Label(master=frame, text="Nome do candidato")
     input = ttk.Entry(master=frame)
-    button = ttk.Button(master=frame, text="Inserir")
+    button = ttk.Button(master=frame, text="Inserir", command=onButtonClick)
 
     # Placing elements on Frame
     label.grid(column=0, row=0, padx=5, pady=5)
