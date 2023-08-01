@@ -3,10 +3,13 @@ import git
 def checkForCommitChanges(repository:git.Repo):
     activeBranch = repository.active_branch
 
-    localCommits = set(repository.iter_commits(activeBranch))
-    remoteCommits = set(repository.iter_commits(f'origin/{activeBranch}'))
+    localCommits = list(repository.iter_commits(activeBranch))
+    remoteCommits = list(repository.iter_commits(f'origin/{activeBranch}'))
 
-    return not remoteCommits.issubset(localCommits)
+    lastLocalCommit = localCommits[0]
+    lastRemoteCommit = remoteCommits[0]
+
+    return lastLocalCommit != lastRemoteCommit
 
 def checkForChangesInRemote(repository:git.Repo):
     for remote in repository.remotes:
