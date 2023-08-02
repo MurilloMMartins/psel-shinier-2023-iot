@@ -2,7 +2,6 @@ import git
 import subprocess
 
 def AutoUpdateProgram(repository:git.Repo, main_file_path:str):
-    print(main_file_path)
     if CheckForChangesInRemote(repository):
         print("Changes in remote detected! Pulling to local repository.")
         PullToLocalRepository(repository)
