@@ -12,7 +12,6 @@ def AutoUpdateThreadFunction(event:threading.Event):
             AutoUpdateProgram(repo, __file__)
         except Exception as err:
             print(f"Unexpected error of type {type(err)}:\n {err}")
-            exit(1)
         
         event.wait(timeout=autoupdate_wait_time_in_seconds)
 
