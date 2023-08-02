@@ -2,7 +2,7 @@ import git, threading, time
 from autoupdate import AutoUpdateProgram
 from applicationGUI import CreateApplicatinGUI
 
-autoupdate_wait_time = 2
+autoupdate_wait_time_in_seconds = 2
 
 def AutoUpdateThreadFunction(event:threading.Event):
     while not event.is_set():
@@ -14,7 +14,7 @@ def AutoUpdateThreadFunction(event:threading.Event):
             print(f"Unexpected error of type {type(err)}:\n {err}")
             exit(1)
         
-        event.wait(timeout=autoupdate_wait_time)
+        event.wait(timeout=autoupdate_wait_time_in_seconds)
 
 def main():
     # Event that tells if the code is still running or not
