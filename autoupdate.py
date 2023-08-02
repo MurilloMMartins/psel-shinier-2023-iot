@@ -13,7 +13,8 @@ def AutoUpdateProgram(repository:git.Repo, main_file_path:str):
         print("Repository up to date.")
 
 def PullToLocalRepository(repository:git.Repo):
-    repository.git.reset('--hard')
+    active_branch = repository.active_branch
+    repository.git.reset('--hard', f'origin/{active_branch}')
     repository.remotes.origin.pull()
     
 def CheckForChangesInRemote(repository:git.Repo):
