@@ -34,14 +34,14 @@ def CreateUIElements(frame:tk.Frame):
     # UI elements
     label = ttk.Label(master=frame, text="Nome do candidato")
     input = ttk.Entry(master=frame)
-    button = ttk.Button(master=frame, text="Inserir", command=OnButtonClick)
+    button = ttk.Button(master=frame, text="Inserir", command=lambda: OnButtonClick(input.get()))
 
     return label, input, button
 
-def OnButtonClick():
+def OnButtonClick(candidate:str):
     popup = tk.Toplevel()
     
-    label = tk.Label(popup, text="Candidato processo seletivo Shinier IoT")
+    label = tk.Label(popup, text=candidate + ", candidato processo seletivo Shinier IoT")
     button = tk.Button(popup, text="OK", command=popup.destroy)
 
     label.pack(padx=30, pady=10, fill='both', expand=True)
