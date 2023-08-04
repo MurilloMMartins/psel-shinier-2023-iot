@@ -1,5 +1,5 @@
 # psel-shinier-2023-iot
-Desafio da Fase Técnica do processo seletivo da Shinier
+Desafio da Fase Técnica do processo seletivo da Shinier.
 
 ## Descrição do Projeto
 Esse projeto é um programa escrito em Python capaz de baixar a versão mais recente de si mesmo de um repositório de controle de versão e se atualiza regularmente. Além disso o programa possui uma interface de usuário simples. O programa foi desenvolvido para rodar em um Raspberry Pi.
@@ -10,8 +10,8 @@ Esse projeto é um programa escrito em Python capaz de baixar a versão mais rec
 3. **Interface de Usuário**: o programa possui uma interface de usuário simples, onde se pode digitar o nome do candidato e, ao apertar um botão, aparecerá um popup com o nome do candidato seguido do texto "candidato processo seletivo Shinier IoT".
 
 ## Pré-Requisitos
-- Python 3 (recomenda-se usar a versão mais atual disponível)
-- Raspberry Pi (emuladores, como VMs ou Docker, podem ser utilizados como alternativas)
+- Python 3 (recomenda-se usar a versão mais atual disponível).
+- Raspberry Pi (emuladores, como VMs ou Docker, podem ser utilizados como alternativas).
 
 ## Instalação
 
@@ -20,7 +20,7 @@ Primeiramente é importante instalar as dependências:
 ```
 sudo pip3 install GitPython
 ```
-- Tkinter
+- Tkinter:
 ```
 sudo pip3 install tk
 ```
