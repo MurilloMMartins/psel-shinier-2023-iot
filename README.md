@@ -7,7 +7,7 @@ Esse projeto é um programa escrito em Python capaz de baixar a versão mais rec
 ## Funcionalidades
 1. **Auto-atualização:** o programa é capaz de verificar regularmente se há uma versão nova de si no repositório do Git e, se houver, ele baixa a e substitui a versão atual pela nova.
 2. **Inicialização Automática**: o programa é configurado para iniciar automaticamente quando o Raspberry Pi for ligado.
-3. **Interface de Usuário**: o programa possui uma interface de usuário simples, onde se pode digitar o nome do candidato e, ao apertar um botão, aparecerá um popup com o nome do candidato seguido do texto "candidato processo seletivo Shinier IoT".a
+3. **Interface de Usuário**: o programa possui uma interface de usuário simples, onde se pode digitar o nome do candidato e, ao apertar um botão, aparecerá um popup com o nome do candidato seguido do texto "candidato processo seletivo Shinier IoT".
 
 ## Pré-Requisitos
 - Python 3 (recomenda-se usar a versão mais atual disponível)
