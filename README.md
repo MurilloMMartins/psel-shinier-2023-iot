@@ -18,11 +18,11 @@ Esse projeto é um programa escrito em Python capaz de baixar a versão mais rec
 Primeiramente é importante instalar as dependências:
 - GitPython:
 ```
-pip3 install GitPython
+sudo pip3 install GitPython
 ```
 - Tkinter
 ```
-pip3 install tk
+sudo pip3 install tk
 ```
 Após isso é só clonar esse repositório e entrar na pasta:
 ```
@@ -30,7 +30,7 @@ cd psel-shinier-2023-iot
 ```
 E assim executar o programa:
 ```
-python3 main.py
+sudo python3 main.py
 ```
 
 Abaixo está a configuração do Raspberry Pi para rodar o programa automaticamente.
@@ -47,5 +47,5 @@ sudo python3 <caminho_do_programa> &
 ```
 Exemplo:
 ```
-sudo python3 /home/pi/main.py &
+sudo python3 /home/pi/psel-shinier-2023-iot/main.py &
 ```
