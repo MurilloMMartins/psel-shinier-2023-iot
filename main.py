@@ -9,7 +9,8 @@ def AutoUpdateThreadFunction(event:threading.Event):
         repo = git.Repo('./')
 
         try:
-            AutoUpdateProgram(repo, __file__)
+            if AutoUpdateProgram(repo, __file__):
+                event.set()
         except Exception as err:
             print(f"Unexpected error of type {type(err)}:\n {err}")
         

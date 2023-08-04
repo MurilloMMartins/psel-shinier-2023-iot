@@ -8,8 +8,11 @@ def AutoUpdateProgram(repository:git.Repo, main_file_path:str):
         
         print("Restarting process!")
         subprocess.Popen(['python', main_file_path])
+
+        return True
     else:
         print("Repository up to date.")
+        return False
 
 def PullToLocalRepository(repository:git.Repo):
     active_branch = repository.active_branch
